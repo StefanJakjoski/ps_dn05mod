@@ -8,7 +8,7 @@ type Student struct {
 	ocene   []int
 }
 
-func dodajOceno(studenti map[string]Student, vpisnaStevilka string, ocena int) {
+func DodajOceno(studenti map[string]Student, vpisnaStevilka string, ocena int) {
 	temp := studenti[vpisnaStevilka]
 	delete(studenti, vpisnaStevilka)
 	temp.ocene = append(temp.ocene, ocena)
@@ -32,7 +32,7 @@ func povprecje(studenti map[string]Student, vpisnaStevilka string) float64 {
 	return res
 }
 
-func izpisRedovalnice(studenti map[string]Student) {
+func IzpisRedovalnice(studenti map[string]Student) {
 	for key, val := range studenti {
 		fmt.Printf("%s - %s %s: ", key, val.ime, val.priimek)
 		fmt.Println(studenti[key].ocene)
@@ -41,7 +41,7 @@ func izpisRedovalnice(studenti map[string]Student) {
 	return
 }
 
-func izpisiKoncniUspeh(studenti map[string]Student) {
+func IzpisiKoncniUspeh(studenti map[string]Student) {
 	for key, val := range studenti {
 		var avg float64 = povprecje(studenti, key)
 
@@ -57,7 +57,7 @@ func izpisiKoncniUspeh(studenti map[string]Student) {
 	return
 }
 
-func createStudent(name string, lastname string, grades []int) Student {
+func CreateStudent(name string, lastname string, grades []int) Student {
 	t := Student{ime: name, priimek: lastname, ocene: grades}
 	return t
 }
